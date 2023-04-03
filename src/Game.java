@@ -15,7 +15,7 @@ class Game{
     }
 
     private void start(){
-        engine.run();
+        engine.oneGame(-1);
     }
 
 }

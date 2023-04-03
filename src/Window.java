@@ -14,7 +14,7 @@ class Window extends JFrame{
         //setExtendedState(MAXIMIZED_BOTH);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
-        setSize(new Dimension(300,300));
+        setSize(new Dimension(1000,500));
         setVisible(true); 
     }
 

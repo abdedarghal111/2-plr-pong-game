@@ -16,10 +16,11 @@ public class Play implements KeyListener{
         window.addKeyListener(this);
     }
 
-    void init(){
+    void init(int ballSide){
         blue.setVisible(true);
         red.setVisible(true);
         ball.setVisible(true);
+        ball.setFirstVelocity(ballSide);
     }
 
     public void drawObj(Graphics g){
@@ -68,8 +69,9 @@ public class Play implements KeyListener{
         if(downPressed){red.moveDown();}
     }
 
-    public void run(){
+    public void loop(){
         inputEvents();
+        ball.update();
     };
     
 }

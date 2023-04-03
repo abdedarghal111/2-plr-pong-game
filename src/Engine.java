@@ -3,7 +3,7 @@ import java.lang.Thread;
 class Engine{
 
     final Window window;
-    boolean running = false;
+    boolean gameRunning = false;
     Play play;
     
 
@@ -12,22 +12,18 @@ class Engine{
         this.play = new Play(window);
     }
 
-    void run(){
-        running = true;
-        play.init();
-        while(running){
-            loop();
+    void oneGame(int ballSide){
+        gameRunning = true;
+        play.init(ballSide);
+        while(gameRunning){
+            play.loop();
             window.paint(play);
             try {Thread.sleep(1000/60);} catch (Exception e) {e.printStackTrace();}
         }
     }
 
-    void endProgram(){
-        running = false;
-    }
-
-    void loop(){
-        play.run();
+    void endGame(){
+        gameRunning = false;
     }
 
 }
