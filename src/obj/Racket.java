@@ -8,7 +8,8 @@ public class Racket {
     private float 
     x,y,
     widthCons = 0.07f,
-    heightcons = 0.34f;
+    heightcons = 0.34f,
+    velocity = 3;
     private int
     width,
     height;
@@ -44,6 +45,14 @@ public class Racket {
 
     public void setVisible(boolean visible){
         this.visible = visible;
+    }
+
+    public void moveUp(){
+        y -= velocity;
+    }
+
+    public void moveDown(){
+        y += velocity;
     }
 
 }

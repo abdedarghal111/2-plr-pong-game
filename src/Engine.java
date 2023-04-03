@@ -5,6 +5,7 @@ class Engine{
     final Window window;
     boolean running = false;
     Play play;
+    
 
     Engine(Window window){
         this.window = window;
@@ -26,7 +27,7 @@ class Engine{
     }
 
     void loop(){
-        
+        play.run();
     }
 
 }

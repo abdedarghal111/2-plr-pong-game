@@ -1,6 +1,9 @@
 import javax.swing.JFrame;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.image.BufferStrategy;
+
 
 class Window extends JFrame{
     
@@ -8,15 +11,21 @@ class Window extends JFrame{
     Window(){
         
         //window Settings
-        setExtendedState(MAXIMIZED_BOTH);
+        //setExtendedState(MAXIMIZED_BOTH);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
-        setVisible(true);     
+        setSize(new Dimension(300,300));
+        setVisible(true); 
     }
 
 
     void paint(Play play){
-        Graphics g = getGraphics();
+        BufferStrategy bs = getBufferStrategy();
+        if(bs == null){
+            createBufferStrategy(2);
+            bs = getBufferStrategy();
+        }
+        Graphics g = bs.getDrawGraphics();
         g.setColor(Color.BLACK);
         g.fillRect(0, 0,(int)getSize().getWidth(),(int)getSize().getHeight());
 
@@ -24,7 +33,22 @@ class Window extends JFrame{
         play.drawObj(g);
         //end drawing
 
-        g.dispose();
+        bs.show();
+        bs.dispose();
+    }
+
+    void draw(){
+        BufferStrategy bs = getBufferStrategy();
+        if(bs == null){
+            createBufferStrategy(2);
+            bs = getBufferStrategy();
+        }
+        Graphics g = bs.getDrawGraphics();
+        g.setColor(Color.BLUE);
+        g.fillRect(0, 0,(int)getSize().getWidth(),(int)getSize().getHeight());
+
+        bs.show();
+        bs.dispose();
     }
 
 }
