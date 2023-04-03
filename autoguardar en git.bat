@@ -2,7 +2,6 @@
 title Autoguardado en git del proyecto "prueba"
 color 0B
 echo Starting save
-color 0A
 echo ----------------------------------------------------------
 
 git add %~dp0*
