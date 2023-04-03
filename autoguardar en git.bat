@@ -1,11 +1,14 @@
 @echo off
-title "Autoguardado en git del proyecto 'prueba'"
-echo "Starting save"
-echo "----------------------------------------------------------"
+title Autoguardado en git del proyecto "prueba"
+color 0B
+echo Starting save
+color 0A
+echo ----------------------------------------------------------
+
 git add %~dp0*
-git commit -m "this is autosave from 'autoguardar en git.bat'"
+git commit -m "This is autosave from 'autoguardar en git.bat'."
 git push
-echo "----------------------------------------------------------"
-echo "Save ended"
+echo ----------------------------------------------------------
+echo Save ended
 pause
 exit
