@@ -14,6 +14,7 @@ public class Racket {
     width,
     height;
     Color color;
+    int windowWidth,windowHeight;
 
     public boolean visible = false;
 
@@ -21,10 +22,13 @@ public class Racket {
         BLUE,
         RED
     }
+
+    TEAM team;
     
     public Racket(int windowWidth,int windowHeight,TEAM team){
         this.width = (int)(windowWidth * widthCons);
         this.height = (int)(windowHeight * heightcons);
+        this.team = team;
         if(team == TEAM.BLUE){
             this.x = 0;
             this.color = Color.BLUE;
@@ -34,6 +38,8 @@ public class Racket {
         }
 
         this.y = (int)((windowHeight/2) -  (height/2));
+        this.windowHeight = windowHeight;
+        this.windowWidth = windowWidth;
     }
 
     public void draw(Graphics g){
@@ -53,6 +59,17 @@ public class Racket {
 
     public void moveDown(){
         y += velocity;
+    }
+
+    public void checkColisionWithBall(Ball ball){
+        if(team == TEAM.BLUE && ball.getx() < width){
+            //TODO: agregarle el tocar la barrita
+            ball.colisionedWithRacket(width);
+        }else if(team == TEAM.RED && ball.getx() + ball.getsize() > windowWidth - width){
+            //TODO: agregarle el tocar la barrita
+            ball.colisionedWithRacket(windowWidth - width - ball.getsize());
+        }
+
     }
 
 }

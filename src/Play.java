@@ -72,6 +72,8 @@ public class Play implements KeyListener{
     public void loop(){
         inputEvents();
         ball.update();
+        blue.checkColisionWithBall(ball);
+        red.checkColisionWithBall(ball);
     };
     
 }
