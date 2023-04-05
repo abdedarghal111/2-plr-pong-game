@@ -9,7 +9,8 @@ public class Racket {
     x,y,
     widthCons = 0.07f,
     heightcons = 0.34f,
-    velocity = 10;
+    velocity = 10,
+    velocityUpload = 1;
     private int
     width,
     height;
@@ -67,22 +68,32 @@ public class Racket {
         }
     }
 
+    public void increaseVel(){
+        velocity += velocityUpload;
+    }
+
     public void checkColisionWithBall(Ball ball){
         if(team == TEAM.BLUE && ball.getx() < width && ball.getx() > width/2){
             if(ball.gety() <= y && ball.gety() + ball.getsize() >= y){
                 ball.colisionedWithRacket(width);
+                increaseVel();
             }else if(ball.gety() <= y + height && ball.gety() + ball.getsize() >= y + height){
                 ball.colisionedWithRacket(width);
+                increaseVel();
             }else if(ball.gety() >= y && ball.gety() + ball.getsize() <= y + height){
                 ball.colisionedWithRacket(width);
+                increaseVel();
             }
         }else if(team == TEAM.RED && ball.getx() + ball.getsize() > windowWidth - width && ball.getx() + ball.getsize() < windowWidth - width/2){
             if(ball.gety() <= y && ball.gety() + ball.getsize() >= y){
                 ball.colisionedWithRacket(windowWidth - width - ball.getsize());
+                increaseVel();
             }else if(ball.gety() <= y + height && ball.gety() + ball.getsize() >= y + height){
                 ball.colisionedWithRacket(windowWidth - width - ball.getsize());
+                increaseVel();
             }else if(ball.gety() >= y && ball.gety() + ball.getsize() <= y + height){
                 ball.colisionedWithRacket(windowWidth - width - ball.getsize());
+                increaseVel();
             }
         }
 

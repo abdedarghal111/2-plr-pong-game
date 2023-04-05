@@ -8,7 +8,7 @@ public class Ball {
     private double 
     x,y,
     sizeCons = 0.03f,
-    velocity = 15,
+    velocity = 5,
     velocityUploading = 1,
     speedCons = 1f;
     private int
