@@ -8,8 +8,9 @@ public class Ball {
     private double 
     x,y,
     sizeCons = 0.03f,
-    velocity = 100,
-    speedCons = 0.5f;
+    velocity = 15,
+    velocityUploading = 1,
+    speedCons = 1f;
     private int
     size;
     Color color;
@@ -108,14 +109,22 @@ public class Ball {
         directionVector[0] *= -1;
         x = ballXPosition;
         setRandDirection();
+        increaseVelocity();
     }
 
-    double getx(){
+    public double getx(){
         return x;
     }
+    public double gety(){
+        return y;
+    }
 
-    double getsize(){
+    public double getsize(){
         return size;
+    }
+
+    public void increaseVelocity(){
+        velocity +=velocityUploading;
     }
 
 }

@@ -8,8 +8,10 @@ public class Play implements KeyListener{
 
     Racket blue,red;
     Ball ball;
+    Window window;
     
     Play(Window window){
+        this.window = window;
         this.blue = new Racket(window.getWidth(),window.getHeight(),TEAM.BLUE);
         this.red = new Racket(window.getWidth(),window.getHeight(),TEAM.RED);
         this.ball = new Ball(window.getWidth(),window.getHeight());
@@ -69,11 +71,24 @@ public class Play implements KeyListener{
         if(downPressed){red.moveDown();}
     }
 
-    public void loop(){
+    public void loop(Engine engine){
         inputEvents();
         ball.update();
         blue.checkColisionWithBall(ball);
         red.checkColisionWithBall(ball);
+        switch(BallOut()){
+            case 1: engine.endGame(TEAM.RED);break;
+            case 2: engine.endGame(TEAM.BLUE);break;
+        }
     };
+
+    int BallOut(){
+        if(0 > ball.getx() + ball.getsize()){
+            return 1;
+        }else if(window.getWidth() < ball.getx()){
+            return 2;
+        }
+        return 3;
+    }
     
 }

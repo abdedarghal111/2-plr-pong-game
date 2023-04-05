@@ -1,10 +1,12 @@
 import java.lang.Thread;
+import obj.Racket.TEAM;
 
 class Engine{
 
     final Window window;
     boolean gameRunning = false;
     Play play;
+    TEAM winner;
     
 
     Engine(Window window){
@@ -16,13 +18,19 @@ class Engine{
         gameRunning = true;
         play.init(ballSide);
         while(gameRunning){
-            play.loop();
+            play.loop(this);
             window.paint(play);
             try {Thread.sleep(1000/60);} catch (Exception e) {e.printStackTrace();}
         }
+        if(winner == TEAM.BLUE){
+            System.out.println("Ha ganado el azul.");
+        }else if(winner == TEAM.RED){
+            System.out.println("Ha ganado el rojo.");
+        }
     }
 
-    void endGame(){
+    void endGame(TEAM winner){
+        this.winner = winner;
         gameRunning = false;
     }
 
