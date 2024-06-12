@@ -20,5 +20,5 @@ The `autoguardar en git.bat` file is a bad practice. Don't use it.
 
 ## Demonstration
 
-[Demostration video](https://github.com/abdedarghal111/2-plr-pong-game/raw/main/videos/pongGame.mp4)
+![Demostration video](https://github.com/abdedarghal111/2-plr-pong-game/raw/main/videos/pongGame.mp4)
 
