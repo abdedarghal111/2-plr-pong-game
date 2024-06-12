@@ -1,4 +1,4 @@
-# About this
+# About this repository
 
 This is a small project I did to test my java knowledges.
 
@@ -20,5 +20,5 @@ The `autoguardar en git.bat` file is a bad practice. Don't use it.
 
 ## Demonstration
 
-[![Video about pong game.](./videos/pongGame.mp4)]
+https://github.com/abdedarghal111/2-plr-pong-game/raw/main/videos/pongGame.mp4
 
