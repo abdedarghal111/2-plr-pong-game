@@ -34,7 +34,7 @@ class Window extends JFrame{
         //end drawing
 
         bs.show();
-        bs.dispose();
+        //bs.dispose();
     }
 
     void draw(){
